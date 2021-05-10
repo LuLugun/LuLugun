@@ -1,0 +1,8 @@
+a = float(input("浮點數1:"))
+b = float(input("浮點數2:"))
+c = float(input("浮點數3:"))
+d = float(input("浮點數4:"))
+print ("|{0:>7.2f} {0:>7.2f}|".format(a,b))
+print ("|{0:>7.2f} {0:>7.2f}|".format(c,d))
+print ("|{0:<7.2f} {0:<7.2f}|".format(a,b))
+print ("|{0:<7.2f} {0:<7.2f}|".format(c,d))
