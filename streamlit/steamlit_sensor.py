@@ -16,7 +16,7 @@ if col1.checkbox('溫度'):
     temperature = sensor['溫度']
     temperature = pd.DataFrame(temperature)
     temperature.set_index(pd.to_datetime(sensor["時間"],format="%Y/%m/%d %H:%M"),inplace=True)
-    line_chart = col1.line_chart(temperature)    #折線圖
+    line_chart = st.line_chart(temperature)    #折線圖
         
 
 
@@ -24,13 +24,13 @@ if col2.checkbox('濕度'):
     temperature = sensor['濕度']
     temperature = pd.DataFrame(temperature)
     temperature.set_index(pd.to_datetime(sensor["時間"],format="%Y/%m/%d %H:%M"),inplace=True)
-    line_chart = col2.line_chart(temperature)    #折線圖
+    line_chart = st.line_chart(temperature)    #折線圖
 
 if col3.checkbox('水質(盆栽)'):
     temperature = sensor['水質(盆栽)']
     temperature = pd.DataFrame(temperature)
     temperature.set_index(pd.to_datetime(sensor["時間"],format="%Y/%m/%d %H:%M"),inplace=True)
-    line_chart = col3.line_chart(temperature)    #折線圖
+    line_chart = st.line_chart(temperature)    #折線圖
 
 if st.checkbox('亮度'):
     temperature = sensor['亮度']
