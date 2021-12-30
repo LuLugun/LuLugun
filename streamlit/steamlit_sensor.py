@@ -32,25 +32,25 @@ if col3.checkbox('水質(盆栽)'):
     temperature.set_index(pd.to_datetime(sensor["時間"],format="%Y/%m/%d %H:%M"),inplace=True)
     line_chart = st.line_chart(temperature)    #折線圖
 
-if st.checkbox('亮度'):
+if col4.checkbox('亮度'):
     temperature = sensor['亮度']
     temperature = pd.DataFrame(temperature)
     temperature.set_index(pd.to_datetime(sensor["時間"],format="%Y/%m/%d %H:%M"),inplace=True)
     line_chart = st.line_chart(temperature)    #折線圖
 
-if st.checkbox('二氧化碳濃度'):
+if col5.checkbox('二氧化碳濃度'):
     temperature = sensor['二氧化碳濃度']
     temperature = pd.DataFrame(temperature)
     temperature.set_index(pd.to_datetime(sensor["時間"],format="%Y/%m/%d %H:%M"),inplace=True)
     line_chart = st.line_chart(temperature)    #折線圖
 
-if st.checkbox('水溫(盆栽)'):
+if col6.checkbox('水溫(盆栽)'):
     temperature = sensor['水溫(盆栽)']
     temperature = pd.DataFrame(temperature)
     temperature.set_index(pd.to_datetime(sensor["時間"],format="%Y/%m/%d %H:%M"),inplace=True)
     line_chart = st.line_chart(temperature)    #折線圖
 
-if st.checkbox('水溫(水池)'):
+if col7.checkbox('水溫(水池)'):
     temperature = sensor['水溫(水池)']
     temperature = pd.DataFrame(temperature)
     temperature.set_index(pd.to_datetime(sensor["時間"],format="%Y/%m/%d %H:%M"),inplace=True)
