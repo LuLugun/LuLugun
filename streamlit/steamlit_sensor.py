@@ -10,7 +10,7 @@ sensor=sensor.values
 sensor = pd.DataFrame(sensor)
 sensor.columns=['時間','溫度','濕度','水質(盆栽)','亮度','二氧化碳濃度','水溫(盆栽)','水溫(水池)']
 
-col1, col2, col3, col4, col5, col6, col7 = st.columns([1,1,2,1,2,2,2])
+col1, col2, col3, col4, col5, col6, col7 = st.columns([1,1,3,1,3,3,3])
 
 if col1.checkbox('溫度'):
     temperature = sensor['溫度']
