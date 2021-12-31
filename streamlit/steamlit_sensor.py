@@ -16,7 +16,7 @@ if col1.checkbox('溫度'):
     temperature = sensor['溫度']
     temperature = pd.DataFrame(temperature)
     temperature.set_index(pd.to_datetime(sensor["時間"],format="%Y/%m/%d %H:%M"),inplace=True)
-    line_chart = st.line_chart(temperature)    #折線圖
+    line_chart = st.line_chart(temperature,720,90)    #折線圖
         
 
 
