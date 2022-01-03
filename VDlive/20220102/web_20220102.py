@@ -14,7 +14,7 @@ S_datacollecttime = []
 M_datacollecttime = []
 L_datacollecttime = []
 T_datacollecttime = []
-files = os.listdir('LuLugun/VDlive/20220102/)
+files = os.listdir('LuLugun/VDlive/20220102/')
 executions = 0
 
 
