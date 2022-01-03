@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
+from datetime import datetime
 S_volume = []
 S_speed = []
 M_volume = []
@@ -15,8 +16,11 @@ L_datacollecttime = []
 T_datacollecttime = []
 files = os.listdir()
 executions = 0
+
+
 st.caption('VD-42-0090-162-01 : 3000900116276U')
 for i in files:
+    st.caption(str(i))
     try:
         vdlive = pd.read_csv(str(i))
         vdlive = vdlive.values
