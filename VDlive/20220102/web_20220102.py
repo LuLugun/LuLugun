@@ -1,8 +1,5 @@
-import time
 import streamlit as st
-import numpy as np
 import pandas as pd
-import datetime
 import os
 S_volume = []
 S_speed = []
@@ -16,7 +13,7 @@ S_datacollecttime = []
 M_datacollecttime = []
 L_datacollecttime = []
 T_datacollecttime = []
-files = os.listdir('D:\\Sourcrtree\\Lulugun\\VDlive\\20220102')
+files = os.listdir()
 executions = 0
 st.caption('VD-42-0090-162-01 : 3000900116276U')
 for i in files:
