@@ -43,6 +43,7 @@ for i in files:
                         L_volume.append(volume_list[number])
                         L_speed.append(speed2_list[number])
                     if vehicletype_list[number] == 'M':
+                        st.header(volume_list[number])
                         M_datacollecttime.append(datacollecttime_list[number])
                         M_volume.append(volume_list[number])
                         M_speed.append(speed2_list[number])
