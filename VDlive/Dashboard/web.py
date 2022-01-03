@@ -17,11 +17,11 @@ L_datacollecttime = []
 T_datacollecttime = []
 local_time = datetime.datetime.now() + datetime.timedelta(minutes=-1)
 local_time = local_time.strftime('%Y%m%d_%H_%M')
-file_time = datetime.datetime.now() + datetime.timedelta(minutes=-1440)
+file_time = datetime.datetime.now() + datetime.timedelta(minutes=(-1440*3))
 
 executions = 0
-st.caption('VD-42-0090-162-01 : 3000900116276U')
-while executions < 1440:
+st.header('VD-42-0090-162-01 : 3000900116276U')
+while executions < (1440*3) :
     try:
         executions = executions+1
         str_time = str(file_time.strftime('%Y%m%d_%H_%M'))
@@ -62,8 +62,6 @@ while executions < 1440:
             number = number+1
     except FileNotFoundError as e:
         pass
-
-
 
 
 
