@@ -20,7 +20,6 @@ executions = 0
 
 st.caption('VD-42-0090-162-01 : 3000900116276U')
 for i in files:
-    st.caption(str(i))
     try:
         vdlive = pd.read_csv(str(i))
         vdlive = vdlive.values
