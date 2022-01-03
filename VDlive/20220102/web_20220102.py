@@ -22,6 +22,7 @@ st.header('VD-42-0090-162-01 : 3000900116276U')
 for i in files:
     try:
         vdlive = pd.read_csv(str(i))
+        st.header(str(i))
         vdlive = vdlive.values
         vdlive = pd.DataFrame(vdlive)
         vdlive.columns = ["vdid", "linkid","laneid","lanetype","speed","occupancy","vehicletype","volume","speed2","status","datacollecttime"]
@@ -43,7 +44,6 @@ for i in files:
                         L_volume.append(volume_list[number])
                         L_speed.append(speed2_list[number])
                     if vehicletype_list[number] == 'M':
-                        st.header(volume_list[number])
                         M_datacollecttime.append(datacollecttime_list[number])
                         M_volume.append(volume_list[number])
                         M_speed.append(speed2_list[number])
