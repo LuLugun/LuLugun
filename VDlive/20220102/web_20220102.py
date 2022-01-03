@@ -22,7 +22,6 @@ st.header('VD-42-0090-162-01 : 3000900116276U')
 for i in files:
     try:
         vdlive = pd.read_csv('VDlive/20220102/'+str(i))
-        st.header(str(i))
         vdlive = vdlive.values
         vdlive = pd.DataFrame(vdlive)
         vdlive.columns = ["vdid", "linkid","laneid","lanetype","speed","occupancy","vehicletype","volume","speed2","status","datacollecttime"]
