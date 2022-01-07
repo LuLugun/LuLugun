@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from bokeh.plotting import figure, show
 
-sensor = pd.read_csv('sensor (1).csv')
+sensor = pd.read_csv('9-12.csv')
 sensor=sensor.values
 sensor = pd.DataFrame(sensor)
 sensor.columns=['時間','溫度','濕度','水質(盆栽)','亮度','CO2','水溫(盆栽)','水溫(水池)']
