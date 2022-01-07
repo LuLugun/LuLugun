@@ -8,7 +8,7 @@ from bokeh.plotting import figure, show
 sensor = pd.read_csv('202112.csv')
 sensor=sensor.values
 sensor = pd.DataFrame(sensor)
-sensor.columns=['時間','溫度','濕度','水質(盆栽)','亮度','CO2','水溫(盆栽)','水溫(水池)']
+sensor.columns=['時間','溫度','濕度','水質(盆栽)','水質(水池)','亮度','CO2','水溫(盆栽)','水溫(水池)']
 
 col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
 
