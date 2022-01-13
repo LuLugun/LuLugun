@@ -1,17 +1,18 @@
 from bs4 import BeautifulSoup
 import urllib.request
-import xml.etree.ElementTree as Xet
 import pandas as pd
 import time
 import datetime
 import untangle, csv
+import os
+local_path = os.path.dirname(os.path.abspath(__file__))
 
 while True:
     try:
         content = urllib.request.urlopen('https://thbapp.thb.gov.tw/opendata/vd/one/VDLiveList.xml')
-        soup = BeautifulSoup(content)
+        soup = BeautifulSoup(content,"html.parser")
         str_all = soup.prettify()
-        time.sleep(60)
+        time.sleep(10)
         path = 'VDLiveList.xml'
         f = open(path, 'w')
         f.write(str_all)
@@ -213,6 +214,11 @@ while True:
         result = time.localtime()
         local_time = datetime.datetime.now()
         local_time = str(local_time.strftime('%Y%m%d_%H_%M'))
-        df.to_csv(local_time+'VDLiveList.csv', index = False)
-    except:
+        df.to_csv(local_path+'//csv//'+local_time+'VDLiveList.csv', index = False)
+    except Exception as e:
+        result = time.localtime()
+        local_time = datetime.datetime.now()
+        local_time = str(local_time.strftime('%Y%m%d_%H_%M'))
+        print(str(e)+':'+local_time+'VDLiveList.csv')
+        time.sleep(5)
         pass

@@ -1,5 +1,8 @@
+import xml.etree.ElementTree as Xet
 import pandas as pd
-import untangle
+import time
+import datetime
+import untangle, csv
 import os 
 
 def xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime):
