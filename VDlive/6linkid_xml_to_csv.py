@@ -1,8 +1,6 @@
 import xml.etree.ElementTree as Xet
 import pandas as pd
-import time
-import datetime
-import untangle, csv
+import untangle
 import os 
 linkid_list = ['3000900115387U', '3000900116276U', '3000900116579U', '3000900117023U', '3000900117598U', '3000900117886U']
 def xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime):
@@ -20,13 +18,11 @@ def xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volu
     return data
 
 mypath = input("請輸入xml資料夾路徑(ex:D:\VDlive):")
-
+title = ["vdid", "linkid","laneid","lanetype","speed","occupancy","vehicletype","volume","speed2","status","datacollecttime"]
 files = os.listdir(mypath)
 for i in files:
     try:
         xml = untangle.parse(mypath+ "\\" + str(i))
-    
-        title = ["vdid", "linkid","laneid","lanetype","speed","occupancy","vehicletype","volume","speed2","status","datacollecttime"]
         xml_to_csv = []
         for html in xml.vdlivelist.vdlives.vdlive:
             vdid = html.vdid.cdata

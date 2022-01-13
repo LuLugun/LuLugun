@@ -21,6 +21,7 @@ def xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volu
                         "datacollecttime": str(datacollecttime).replace(' ','').strip().replace('T',' ').replace('+08:00','')}
     return data
 
+title = ["vdid", "linkid","laneid","lanetype","speed","occupancy","vehicletype","volume","speed2","status","datacollecttime"]
 while True:
     try:
         content = urllib.request.urlopen('https://thbapp.thb.gov.tw/opendata/vd/one/VDLiveList.xml')
@@ -32,9 +33,7 @@ while True:
         f.write(str_all)
         f.close()
         xml = untangle.parse("VDLiveList.xml")
-        title = ["vdid", "linkid","laneid","lanetype","speed","occupancy","vehicletype","volume","speed2","status","datacollecttime"]
         xml_to_csv = []
-
         for html in xml.vdlivelist.vdlives.vdlive:
             vdid = html.vdid.cdata
             try:
