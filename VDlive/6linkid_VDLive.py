@@ -9,8 +9,9 @@ local_path = os.path.dirname(os.path.abspath(__file__))
 
 linkid_list = ['3000900115387U', '3000900116276U', '3000900116579U', '3000900117023U', '3000900117598U', '3000900117886U']
 
-def xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime):
-    data = {"vdid": str(vdid).replace(' ','').strip(),
+def xml_to_csv_dict(updatetime,vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime):
+    data = {"updatetime": str(updatetime).replace(' ','').strip().replace('T',' ').replace('+08:00',''),
+                        "vdid": str(vdid).replace(' ','').strip(),
                         "linkid": str(linkid).replace(' ','').strip(),
                         "laneid": str(laneid).replace(' ','').strip(),
                         "lanetype": str(lanetype).replace(' ','').strip(),
@@ -20,7 +21,7 @@ def xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volu
                         "volume": str(volume).replace(' ','').strip(),
                         "speed2": str(speed2).replace(' ','').strip(),
                         "status": str(status).replace(' ','').strip(),
-                        "datacollecttime": str(datacollecttime).replace(' ','').strip().replace('T',' ').replace('+08:00','')}
+                        "datacollecttime": str(datacollecttime).replace(' ','').strip().replace('T',' ').replace('+08:00','').replace('.000','')}
     return data
 print('自動抓取xml轉csv啟動')
 while True:
@@ -33,9 +34,9 @@ while True:
         f.write(str_all)
         f.close()
         xml = untangle.parse("VDLiveList.xml")
-        title = ["vdid", "linkid","laneid","lanetype","speed","occupancy","vehicletype","volume","speed2","status","datacollecttime"]
+        title = ["updatetime","vdid", "linkid","laneid","lanetype","speed","occupancy","vehicletype","volume","speed2","status","datacollecttime"]
         xml_to_csv = []
-
+        updatetime = xml.vdlivelist.updatetime.cdata
         for html in xml.vdlivelist.vdlives.vdlive:
             vdid = html.vdid.cdata
             try:
@@ -62,7 +63,7 @@ while True:
                         except AttributeError as e:
                             speed2 = ""
                         if linkid in linkid_list:
-                            xml_to_csv.append(xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
+                            xml_to_csv.append(xml_to_csv_dict(updatetime,vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
                     except:
                         for html_vehicle in html.linkflows.linkflow.lanes.lane.vehicles.vehicle:
                             vehicletype = html_vehicle.vehicletype.cdata
@@ -72,7 +73,7 @@ while True:
                             except AttributeError as e:
                                 speed2 = ""
                             if linkid in linkid_list:
-                                xml_to_csv.append(xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
+                                xml_to_csv.append(xml_to_csv_dict(updatetime,vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
 
                 except:
                     for html_laneid in html.linkflows.linkflow.lanes.lane:
@@ -88,7 +89,7 @@ while True:
                             except AttributeError as e:
                                 speed2 = ""
                             if linkid in linkid_list:
-                                xml_to_csv.append(xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
+                                xml_to_csv.append(xml_to_csv_dict(updatetime,vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
                         except:
                             for html_vehicle in html_laneid.vehicles.vehicle:
                                 vehicletype = html_vehicle.vehicletype.cdata
@@ -98,7 +99,7 @@ while True:
                                 except AttributeError as e:
                                     speed2 = ""
                                 if linkid in linkid_list:
-                                    xml_to_csv.append(xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
+                                    xml_to_csv.append(xml_to_csv_dict(updatetime,vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
                         
             except:
                 for html_linkid in html.linkflows.linkflow:
@@ -117,7 +118,7 @@ while True:
                             except AttributeError as e:
                                 speed2 = ""
                             if linkid in linkid_list:
-                                xml_to_csv.append(xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
+                                xml_to_csv.append(xml_to_csv_dict(updatetime,vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
                         except:
                             for html_vehicle in html_linkid.lanes.lane.vehicles.vehicle:
                                 vehicletype = html_vehicle.vehicletype.cdata
@@ -127,7 +128,7 @@ while True:
                                 except AttributeError as e:
                                     speed2 = ""
                                 if linkid in linkid_list:
-                                    xml_to_csv.append(xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
+                                    xml_to_csv.append(xml_to_csv_dict(updatetime,vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
                     except:
                         for html_laneid in html_linkid.lanes.lane:
                             laneid = html_laneid.laneid.cdata
@@ -142,7 +143,7 @@ while True:
                                 except AttributeError as e:
                                     speed2 = ""
                                 if linkid in linkid_list:
-                                    xml_to_csv.append(xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
+                                    xml_to_csv.append(xml_to_csv_dict(updatetime,vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
                             except:
                                 for html_vehicle in html_laneid.vehicles.vehicle:
                                     vehicletype = html_vehicle.vehicletype.cdata
@@ -152,14 +153,11 @@ while True:
                                     except AttributeError as e:
                                         speed2 = ""
                                     if linkid in linkid_list:
-                                        xml_to_csv.append(xml_to_csv_dict(vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
+                                        xml_to_csv.append(xml_to_csv_dict(updatetime,vdid,linkid,laneid,lanetype,speed,occupancy,vehicletype,volume,speed2,status,datacollecttime))
 
             
         df = pd.DataFrame(xml_to_csv, columns=title)   
-        result = time.localtime()
-        local_time = datetime.datetime.now()
-        local_time = str(local_time.strftime('%Y%m%d_%H_%M'))
-        df.to_csv(local_path+'//csv//'+local_time+'VDLiveList.csv', index = False)
+        df.to_csv(local_path+'//csv//'+str(updatetime).replace(' ','').strip().replace('T','_').replace('+08:00','').replace('-','').replace(':','_')+'VDLiveList.csv', index = False)
     except Exception as e:
         result = time.localtime()
         local_time = datetime.datetime.now()

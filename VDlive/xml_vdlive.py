@@ -10,11 +10,11 @@ import os
 local_path = os.path.dirname(os.path.abspath(__file__))
 while True:
     try:
-        local_time = datetime.datetime.now()
-        local_time = str(local_time.strftime('%Y%m%d_%H_%M'))
-        path = local_path+'//xml//'+local_time+'VDLiveList.xml'
         content = urllib.request.urlopen('https://thbapp.thb.gov.tw/opendata/vd/one/VDLiveList.xml')
         soup = BeautifulSoup(content, "html.parser")
+        comment = soup.vdlivelist.updatetime.string 
+        comment = comment.replace(' ','').strip().replace('T','_').replace('+08:00','').replace('-','').replace(':','_')
+        path = local_path+'//xml//'+comment+'VDLiveList.xml'
         str_all = soup.prettify()
         if str_all == '':
             quit()            
@@ -22,7 +22,7 @@ while True:
         f.write(str_all)
         f.close()
 
-        time.sleep(60)
+        time.sleep(40)
     except SystemExit as e:
         pass
     except Exception as e:
