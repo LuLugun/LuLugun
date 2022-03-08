@@ -29,7 +29,7 @@ def select_data(title_name,table_name,number):
     return result
 
 sql_connect()
-sensor = select_data('''`time`, `temperature`, `humidity`, `quality_Potted`, `quality_Reservoir`, `luminance`, `CO2`, `Potted`, `Reservoir`, `smoke`''','sensor_all','10')
+sensor = select_data('''`time`, `temperature`, `humidity`, `quality_Potted`, `quality_Reservoir`, `luminance`, `CO2`, `Potted`, `Reservoir`, `smoke`''','sensor_all','2016')
 sensor.columns=['時間','溫度','濕度','水質(盆栽)','水質(水池)','亮度','CO2','水溫','水溫(水池)','煙霧']
 print(sensor)
 line_time = sensor["時間"]
