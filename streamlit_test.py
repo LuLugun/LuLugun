@@ -40,3 +40,4 @@ temperature.drop(columns = '時間',inplace=True)
 temperature = pd.DataFrame(temperature)
 temperature.set_index(pd.to_datetime(line_time,format="%Y-%m-%d %H:%M:%S"),inplace=True)
 
+line_chart = st.line_chart(temperature,use_container_width = False)
