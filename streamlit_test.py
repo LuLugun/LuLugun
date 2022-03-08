@@ -48,9 +48,9 @@ if col1.checkbox('溫度'):
     temperature = sensor['溫度']
     temperature = pd.DataFrame(temperature)
     temperature.set_index(pd.to_datetime(line_time,format="%Y-%m-%d %H:%M:%S"),inplace=True)
-    line_chart = col1.line_chart(temperature)
+    line_chart = col1.line_chart(temperature,height = 200,use_container_width = False)
 if col2.checkbox('濕度'):
     humidity = sensor['濕度']
     humidity = pd.DataFrame(humidity)
     humidity.set_index(pd.to_datetime(line_time,format="%Y-%m-%d %H:%M:%S"),inplace=True)
-    line_chart = col2.line_chart(humidity)    #折線圖
+    line_chart = col2.line_chart(humidity,height = 200,use_container_width = False)    #折線圖
