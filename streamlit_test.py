@@ -41,6 +41,8 @@ sensor_all = pd.DataFrame(sensor_all)
 sensor_all.set_index(pd.to_datetime(line_time,format="%Y-%m-%d %H:%M:%S"),inplace=True)
 line_chart = st.line_chart(sensor_all)
 
+st.subheader('智慧溫室中控台')
+st.write('V0.0.0.1')
 col1, col2  = st.columns(2)
 col3, col4  = st.columns(2)
 col5, col6  = st.columns(2)
