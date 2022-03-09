@@ -32,7 +32,8 @@ sql_connect()
 sensor = select_data('''`time`, `temperature`, `humidity`, `quality_Potted`, `quality_Reservoir`, `luminance`, `CO2`, `Potted`, `Reservoir`, `smoke`''','sensor_all','2016')
 sensor.columns=['時間','溫度','濕度','水質(盆栽)','水質(水池)','亮度','CO2','水溫','水溫(水池)','煙霧']
 
-
+st.subheader('智慧溫室中控台')
+st.write('V0.0.0.1')
 line_time = sensor["時間"]
 
 sensor_all = sensor
@@ -41,8 +42,7 @@ sensor_all = pd.DataFrame(sensor_all)
 sensor_all.set_index(pd.to_datetime(line_time,format="%Y-%m-%d %H:%M:%S"),inplace=True)
 line_chart = st.line_chart(sensor_all)
 
-st.subheader('智慧溫室中控台')
-st.write('V0.0.0.1')
+
 col1, col2  = st.columns(2)
 col3, col4  = st.columns(2)
 col5, col6  = st.columns(2)
