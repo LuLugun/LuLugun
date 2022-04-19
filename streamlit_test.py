@@ -9,7 +9,7 @@ import os
 def sql_connect():
     global db,cursor,host
     host='8.tcp.ngrok.io'
-    port = 14092
+    port = 13458
     user='a11805'
     passwd='pccua11805'
     database='aiot'
