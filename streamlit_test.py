@@ -38,8 +38,8 @@ result=cursor.fetchone()
 
 sensor = select_data('''`time`, `temperature`, `humidity`, `quality_Potted`, `quality_Reservoir`, `luminance`, `CO2`, `Potted`, `Reservoir`, `smoke`''','sensor_all','2016')
 sensor.columns=['時間','溫度','濕度','水質(盆栽)','水質(水池)','亮度','CO2','水溫','水溫(水池)','煙霧']
-col1, col2 ,col3  = st.columns(3)
-col2.subheader('智慧溫室中控台')
+
+st.subheader('智慧溫室中控台')
 
 col1, col2 ,col3  = st.columns(3)
 col1.metric(label="溫度", value=str(result[1])+" °c",)
