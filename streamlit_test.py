@@ -45,9 +45,34 @@ col1.metric(label="溫度", value=str(result[1])+" °c",)
 col2.metric(label="濕度", value=str(result[2])+" %",)
 col3.metric(label="水質", value=str(result[3])+" ppm",)
 
-if st.sidebar.button('Say hello'):
-     st.write('Why hello there')
-
+if st.sidebar.button('燈'):
+     sql = '''UPDATE `action_always` SET `light`='1' '''
+     cursor.execute(sql)
+     db.commit()
+if st.sidebar.button('霧化器'):
+     sql = '''UPDATE `action_always` SET `humidification`='1' '''
+     cursor.execute(sql)
+     db.commit()
+if st.sidebar.button('換水'):
+     sql = '''UPDATE `action_always` SET `water`='1' '''
+     cursor.execute(sql)
+     db.commit()
+if st.sidebar.button('加水'):
+     sql = '''UPDATE `stop` SET `stop`='3' '''
+     cursor.execute(sql)
+     db.commit()
+if st.sidebar.button('抽水'):
+     sql = '''UPDATE `stop` SET `stop`='1' '''
+     cursor.execute(sql)
+     db.commit()
+if st.sidebar.button('施肥'):
+     sql = '''UPDATE `action_always` SET `fertilizer`='1' '''
+     cursor.execute(sql)
+     db.commit()
+if st.sidebar.button('停止'):
+     sql = '''UPDATE `stop` SET `stop`='2' '''
+     cursor.execute(sql)
+     db.commit()       
 line_time = sensor["時間"]
 
 sensor_all = sensor
