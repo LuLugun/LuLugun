@@ -44,6 +44,10 @@ col1, col2 ,col3  = st.columns(3)
 col1.metric(label="溫度", value=str(result[1])+" °c",)
 col2.metric(label="濕度", value=str(result[2])+" %",)
 col3.metric(label="水質", value=str(result[3])+" ppm",)
+
+if st.sidebar.button('Say hello'):
+     st.write('Why hello there')
+
 line_time = sensor["時間"]
 
 sensor_all = sensor
