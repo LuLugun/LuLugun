@@ -41,7 +41,10 @@ sensor.columns=['時間','溫度','濕度','水質(盆栽)','水質(水池)','�
 
 st.subheader('智慧溫室中控台')
 st.write('V0.0.0.1')
-st.metric(label="溫度", value=str(result[1])+" °c",)
+col1, col2 ,col3  = st.columns(3)
+col1.metric(label="溫度", value=str(result[1])+" °c",)
+col2.metric(label="濕度", value=str(result[2])+" %",)
+col3.metric(label="水質", value=str(result[3])+" ppm",)
 line_time = sensor["時間"]
 
 sensor_all = sensor
