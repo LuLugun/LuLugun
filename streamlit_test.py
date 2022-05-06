@@ -22,18 +22,26 @@ def sql_connect():
 
 def select_data(title_name,table_name,number):
     sql = '''SELECT '''+title_name+''' FROM '''+table_name+''' ORDER BY `time` DESC LIMIT '''+number+''';'''
-    print(sql)
+    #print(sql)
     cursor.execute(sql)
     result=cursor.fetchall()
     result = pd.DataFrame(result)
     return result
 
 sql_connect()
+
+sql = '''SELECT * FROM `sensor_all` ORDER BY `sensor_all`.`time` DESC;'''
+cursor.execute(sql)
+result=cursor.fetchone()
+
+
+
 sensor = select_data('''`time`, `temperature`, `humidity`, `quality_Potted`, `quality_Reservoir`, `luminance`, `CO2`, `Potted`, `Reservoir`, `smoke`''','sensor_all','2016')
 sensor.columns=['時間','溫度','濕度','水質(盆栽)','水質(水池)','亮度','CO2','水溫','水溫(水池)','煙霧']
 
 st.subheader('智慧溫室中控台')
 st.write('V0.0.0.1')
+st.metric(label="溫度", value=str(result[1])+" °c",)
 line_time = sensor["時間"]
 
 sensor_all = sensor
