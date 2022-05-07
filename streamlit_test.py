@@ -30,7 +30,7 @@ def select_data(title_name,table_name,number):
 
 sql_connect()
 
-sql = '''SELECT * FROM `sensor_all` ORDER BY `sensor_all`.`time` DESC;'''
+sql = '''SELECT * FROM `test_streamlit` ORDER BY `test_streamlit`.`time` DESC;'''
 cursor.execute(sql)
 result=cursor.fetchone()
 
