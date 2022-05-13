@@ -25,16 +25,13 @@ async def 閃人(ctx):
     time.sleep(4)
     await ctx.voice_client.disconnect()
 
-@bot.command()
-async def 甲(ctx):
-    ss = discord.FFmpegPCMAudio(executable = '''C:\\Users\\User\\OneDrive\\桌面\\discord\\ffmpeg-N-100563-g66deab3a26-win64-gpl-shared-vulkan\\bin\\ffmpeg.exe''',source = '''C:\\Users\\User\\OneDrive\\桌面\\discord\\手淫bot\\SONG_8_210128.0227_2.mp3''')
-    ctx.voice_client.play(ss)
+
 @bot.command()
 async def 欸咦(ctx):
     ss = discord.FFmpegPCMAudio(executable = '''C:\\Users\\User\\OneDrive\\桌面\\discord\\手淫bot\\ffmpeg-N-100563-g66deab3a26-win64-gpl-shared-vulkan\\bin\\ffmpeg.exe''',source = '''C:\\Users\\User\\OneDrive\\桌面\\discord\\手淫bot\\_10076197.m4a''')
     ctx.voice_client.play(ss)
 @bot.command()
-async def 噁圖(ctx): 
+async def 圖(ctx): 
     jpg = discord.File('''C:\\Users\\User\\OneDrive\\桌面\\discord\\bot\\S__101474308.jpg''')
     await ctx.send(file = jpg)
 @bot.command()
