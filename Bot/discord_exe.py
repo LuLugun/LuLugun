@@ -126,7 +126,7 @@ async def on_voice_state_update(member,before,after):
             await channel.send("矮人酋長跑了")"""
 
 
-bot.run('Nzk2NDY0NjkwMjk3MDQ1MDQy.X_YTiw.vzi3aEW0-EOvxrFFrjFEIIPMNQE')
+bot.run('')
 
 
 
