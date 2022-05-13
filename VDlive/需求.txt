@@ -1,5 +1,0 @@
-計畫目標:讓用路人可以提早到達目的地
-技術:AI、5G、IOT
-
-xml檔案命名變更為讀取xml最上曾updatetime的時間值
-csv增加updatetime的欄位
