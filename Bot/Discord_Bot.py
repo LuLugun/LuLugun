@@ -27,9 +27,14 @@ async def 閃人(ctx):
 
 
 @bot.command()
-async def 欸咦(ctx):
-    ss = discord.FFmpegPCMAudio(executable = '''C:\\Users\\User\\OneDrive\\桌面\\discord\\手淫bot\\ffmpeg-N-100563-g66deab3a26-win64-gpl-shared-vulkan\\bin\\ffmpeg.exe''',source = '''C:\\Users\\User\\OneDrive\\桌面\\discord\\手淫bot\\_10076197.m4a''')
+async def 開車(ctx):
+    ss = discord.FFmpegPCMAudio(executable = '''D:\\Downloads\\ffmpeg-2022-05-19-git-dd99d34d67-essentials_build\\ffmpeg-2022-05-19-git-dd99d34d67-essentials_build\\bin\\ffmpeg.exe''',source = '''D:\\Downloads\\IMG_1856 (mp3cut.net).mp3''')
     ctx.voice_client.play(ss)
+@bot.command()
+async def 碰碰車(ctx):
+    ss = discord.FFmpegPCMAudio(executable = '''D:\\Downloads\\ffmpeg-2022-05-19-git-dd99d34d67-essentials_build\\ffmpeg-2022-05-19-git-dd99d34d67-essentials_build\\bin\\ffmpeg.exe''',source = '''D:\\Downloads\\IMG_1856 (mp3cut.net) (1).mp3''')
+    ctx.voice_client.play(ss)
+
 @bot.command()
 async def 圖(ctx): 
     jpg = discord.File('''C:\\Users\\User\\OneDrive\\桌面\\discord\\bot\\S__101474308.jpg''')
@@ -53,8 +58,8 @@ async def 加入(ctx):
     channel = ctx.author.voice.channel
     await channel.connect()
 
-    ss = discord.FFmpegPCMAudio(executable = '''C:\\Users\\User\\OneDrive\\桌面\\discord\\bot\\ffmpeg-N-100563-g66deab3a26-win64-gpl-shared-vulkan\\bin\\ffmpeg.exe''',source = '''C:\\Users\\User\\OneDrive\\桌面\\discord\\手淫bot\\_10076197.m4a''')
-    ctx.voice_client.play(ss)
+    #ss = discord.FFmpegPCMAudio(executable = '''C:\\Users\\User\\OneDrive\\桌面\\discord\\bot\\ffmpeg-N-100563-g66deab3a26-win64-gpl-shared-vulkan\\bin\\ffmpeg.exe''',source = '''C:\\Users\\User\\OneDrive\\桌面\\discord\\手淫bot\\_10076197.m4a''')
+    #ctx.voice_client.play(ss)
 
 
 @bot.event
@@ -77,6 +82,6 @@ async def on_command_error(ctx,error):
         await ctx.send("出事了")
 
 
-bot.run('')
+bot.run('Nzk2NDY0NjkwMjk3MDQ1MDQy.GJk5k4.9F_NhSY8YaDjxglQWKAWdEmZ2MqiiOhNUuI1h8')
 
 
