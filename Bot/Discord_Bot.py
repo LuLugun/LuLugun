@@ -82,6 +82,6 @@ async def on_command_error(ctx,error):
         await ctx.send("出事了")
 
 
-bot.run('Nzk2NDY0NjkwMjk3MDQ1MDQy.GJk5k4.9F_NhSY8YaDjxglQWKAWdEmZ2MqiiOhNUuI1h8')
+bot.run(' ')
 
 
